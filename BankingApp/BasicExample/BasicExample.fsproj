@@ -7,6 +7,10 @@
 
   <ItemGroup>
     <Compile Include="Program.fs" />
+    <Compile Include="SectionOne.fs" />
+    <Compile Include="SectionTwo.fs" />
+    <Compile Include="SectionThree.fs" />
+    <Compile Include="SectionFour.fs" />
   </ItemGroup>
 
 </Project>

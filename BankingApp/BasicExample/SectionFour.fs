@@ -54,14 +54,18 @@ let filteredList = List.filter(fun x -> x%2 <> 0) filterList // <> = not equal
 printfn "%A" filteredList //1, 3, 5
 
 //Iter function
-type Person(x: String) = 
-    let name = x
-    member getName() =
-        name
-
-
 let iterList = ["Ryan"; "Thom"; "Jacob"]
 let newIterList = List.iter(fun x -> printfn "Hello, %s" (x)) iterList
+// Output:
+// Hello, Ryan
+// Hello, Thom
+// Hello, Jacob
+
+//Reduce function
+let reducedList = 
+    [1; 3; 5] //BONUS! I added a pipe
+    |> List.reduce(fun x y -> x * y)
+printfn "%d" reducedList //15
 
 
 
