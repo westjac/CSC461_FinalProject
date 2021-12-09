@@ -6,7 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="CreditCard.fs" />
+    <Compile Include="Check.fs" />
+    <Compile Include="Cash.fs" />
     <Compile Include="Account.fs" />
+    <Compile Include="PaymentProcessing.fs" />
+    <Compile Include="UserAuthentication.fs" />
     <Compile Include="Bank.fs" />
     <Compile Include="Administrator.fs" />
     <Compile Include="AdminDemo.fs" />

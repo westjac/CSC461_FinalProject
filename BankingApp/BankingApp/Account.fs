@@ -26,3 +26,6 @@ type BankAccount(acctNumber: int, username: string, balance: float, password: st
 
     member this.GetName() = 
         _username
+
+    member this.GetPass() = 
+        _password
