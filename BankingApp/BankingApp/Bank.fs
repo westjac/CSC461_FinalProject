@@ -69,6 +69,7 @@ type BankATM(startingAccountNumber: int) =
         let amount = float(Console.ReadLine())
         Console.WriteLine("Enter Method of Payment:")
         Console.WriteLine(" 1 - Cash \n 2 - Check \n 3 - Card")
+        Console.Write("choice:> ")
         let paymentType = int(Console.ReadLine())
 
         match paymentType with
