@@ -8,6 +8,8 @@
   <ItemGroup>
     <Compile Include="Account.fs" />
     <Compile Include="Bank.fs" />
+    <Compile Include="Administrator.fs" />
+    <Compile Include="AdminDemo.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
