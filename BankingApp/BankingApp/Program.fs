@@ -8,7 +8,7 @@ let main argv =
     while (choice <> 0) do
         Console.WriteLine()
         Console.WriteLine("Main Menu")
-        Console.WriteLine(" 1 - Create An Account \n 2 - Log In \n 0 - Exit")
+        Console.WriteLine(" 1 - Create An Account \n 2 - Log In \n 3 - Use Admin powers \n 0 - Exit")
         Console.Write("choice:> ")
         choice <- int(Console.ReadLine())
 
@@ -16,6 +16,7 @@ let main argv =
         | 0 -> Console.WriteLine("\nMerry Christmas ya fithly animal!")
         | 1 -> bank.CreateAccount()
         | 2 -> bank.Login()
+        | 3 -> AdminDemo.run
         | _ -> Console.WriteLine("Please enter a valid number")
 
 

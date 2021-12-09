@@ -3,7 +3,7 @@
 type BankAccount(acctNumber: int, username: string, balance: float, password: string) = 
     let _accountNumber = acctNumber
     let _username = username
-    let _balance = balance
+    let mutable _balance = balance
     let _password = password
 
 
@@ -19,10 +19,10 @@ type BankAccount(acctNumber: int, username: string, balance: float, password: st
 
 
     member this.Withdraw(amount: float) =
-        _balance = _balance - amount
+        _balance <- _balance - amount
         
     member this.Deposit(amount: float) = 
-        _balance = _balance + amount
+        _balance <- _balance + amount
 
     member this.GetName() = 
         _username
