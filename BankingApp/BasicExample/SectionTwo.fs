@@ -10,6 +10,23 @@ let myVar = 7
 let mutable myMutableVar = 7
 myMutableVar <- 10 //This is how you do assignment after declaration
 
+//Print with the print function
+//Utilizes the text writer format
+printfn "Current Count: %d" 25
+
+//Functions
+let myFunction(word: string) =
+    printfn "%s" word
+
+
+myFunction("Hello")
+//Function returing something
+let squared(x: int) = 
+    //The last line is what is returned
+    x * x
+
+let fourSquared = squared 4
+printfn "%d" fourSquared
 
 // 2) How does the language support extension?
 
@@ -28,9 +45,15 @@ type baseClass1() =
     abstract member func1 : int -> int
     default u.func1(a : int) = z <- z + a; z //Add a to z, return z
 
+let baseFunc = baseClass1()
+printfn "Base func1: %d" (baseFunc.func1(2)) //Base func1: 2
+
 type derivedClass1() = 
     inherit baseClass1()
     override u.func1(a : int) = a + 1 //Add 1 to a and return the value
+
+let derivedFunc = derivedClass1()
+printfn "Derived func1: %d" (baseFunc.func1(2)) //Derived func1: 3
 
 
 // Object Expression
