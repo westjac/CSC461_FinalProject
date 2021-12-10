@@ -68,5 +68,72 @@ let reducedList =
 printfn "%d" reducedList //15
 
 
+//Passing Function Values
+//Pass by value is the default
+let exampleFunc(x : int) =
+    //x <- x + 5 can't assign x to a new value by default
+    x
+
+//Pass by reference with byref type
+let exampleFuncByRef(x : byref<int>) = 
+    x <- x + 5
+    x
+
+//Values still must be mutable
+let mutable z = 1
+
+//Use ampersand to pass address of value to function
+let result = exampleFuncByRef &z
+
+printfn "%d" result // 6
+
+
+//SPECIALTIES
+//Currying
+//Normal function
+let addTwoNumbersOriginal(x: int, y: int) = 
+    x + y
+
+//Explicitly curried version of above
+//This is what happens behind the scenes with the compiler
+let addTwoNumbers(x : int) =
+    let subFunction(y : int) =
+        x + y
+    subFunction
+
+//Currying in action
+let x = 7
+let y = 3
+
+//x will now be 'baked in' to this partial function
+let partialFunction = addTwoNumbers x
+
+let result = partialFunction y
+printfn "Curried Version: %d" result // 10
+printfn "Regular Version: %d" (addTwoNumbers x y) // 10
+
+
+//Piping
+type Person(age : int) =
+    let _age = age;
+    member u.Age() = _age
+
+let people = [Person(12); Person(30); Person(22)]
+
+//this works, but is hard to follow at a glance
+let avg = (List.reduce (+) (List.map (fun (x: Person) -> x.Age()) people)) / (List.length people)
+printfn "Average Age: %d" avg //Average Age: 21
+
+
+//this is clearer as to what happens step by step
+let pipedavg = 
+    people                          //Take the collection
+    |> List.map (fun x -> x.Age())  //Get the ages
+    |> List.reduce (+)              //Add them up
+    |> ( fun x -> x / (List.length people))     //Divide by the number of people
+printfn "Piped Average Age: %d" pipedavg //Piped Average Age: 21
+
+
+
 
 
